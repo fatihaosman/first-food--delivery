@@ -1,15 +1,16 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 // import { createContext } from "react";
 
 import { food_list } from "../../assets/assets";
 /*setting up the context API -heading when we started */
 export const  StoreContext = createContext(null)  /*created one contex called storecontext */
 
-const[cartItems,setCartItems]=useState({})
+
 
 /*function for adding anad removing from cart */
 
 const StoreContextProvider =(props)=>{  /*store context provider function*/
+  const[cartItems,setCartItems]=useState({})
 
   const addToCart =(itemId) =>{
     /*user adding for the first time */
@@ -22,6 +23,10 @@ const StoreContextProvider =(props)=>{  /*store context provider function*/
   const removeFromCart =(itemId)=>{
     setCartItems((prev)=>({...prev,[itemId]:prev[itemId]-1}))
   }
+
+  useEffect (()=>{
+    console.log(cartItems);
+  },[cartItems])
 
     /*creating a variable contextValue */
     const contextValue={
