@@ -3,7 +3,7 @@ import './Navbar.css'
 import { assets } from '../../assets/assets'
 import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = ({setShowLogin}) => {
 {/*usestate is also imported from react
    adding underlining effect on the links(ul-li), [state variable,setter function]
   we have created state var name and intialized it with home */}
@@ -24,7 +24,9 @@ const Navbar = () => {
                 <img src={assets.basket_icon} alt="" />
                 <div className="dot"></div>   {/* another div */}
             </div>
-            <button>sign in</button>
+            {/*Purpose: When the Sign In button is clicked, the setShowLogin(true) function is called. */}
+           <button onClick={() => setShowLogin(true)}>Sign In</button>
+
       </div>
     </div>
   )
